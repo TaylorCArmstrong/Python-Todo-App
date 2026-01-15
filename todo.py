@@ -58,18 +58,17 @@ def Delete():
             return
         
         removed = tasks.pop(index)
-    
-while True:
-    greeting = input ('Welcome to your Todo list! Please type your option: Add, View, Delete, Quit: ').strip().lower()
 
-    if greeting == 'add':
-        Add()
-    elif greeting == 'view':
-        View()
-    elif greeting == 'delete':
-        Delete()
-    elif greeting == 'quit':
-        print("Goodbye!")
-        break
+
+    except ValueError:
+        print("Error: Please enter a valid number.\n")
+    except KeyboardInterrupt:
+        print("\n\nTask deletion cancelled.\n")
+    except Exception as e:
+        print(f"An unexpected error occurred: {e}\n")
     else:
-        print("invalid option. Please try again.\n")
+        print(f"Task '{removed}' deleted successfully!\n")
+    finally:
+        pass
+
+    
