@@ -28,23 +28,37 @@ def View():
         if not tasks:
             print("No tasks to view. Your list is empty.\n")
             return
+        
+        for i, task in enumerate(tasks, 1):
+            print(f"{i}. {task}")
+
+    except Exception as e:
+        print(f"An error occurred while viewing tasks: {e}\n")
+    else:
+        print()
+    finally:
+        pass
 
 
 def Delete():
-    if not tasks:
-        print("No tasks to delete.\n")
-        return
-    View()
-    try:
-        index = int(input("Choose a task number to delete: ")) - 1
-        if 0 <= index < len(tasks):
-            removed = tasks.pop(index)
-            print(f"Task '{removed}' deleted!\n")
-        else:
-            print("Invalid task number.\n")
-    except ValueError:
-        print("Please enter a valid number.\n")
 
+    try:
+        if not tasks:
+            print("List empty,no tasks to delete.\n")
+            return
+        
+        View()
+
+        user_input = input("choose a task number to delete: ")
+
+        index = int(user_input) - 1
+
+        if index < 0 or index >= len(tasks):
+            print(f"Error: Task number {user_input} doesnt exist. Please choose a valid task number.\n")
+            return
+        
+        removed = tasks.pop(index)
+    
 while True:
     greeting = input ('Welcome to your Todo list! Please type your option: Add, View, Delete, Quit: ').strip().lower()
 
