@@ -71,4 +71,55 @@ def Delete():
     finally:
         pass
 
+def display_menu():
+    """
+    Display menu options to the user.
+    """
+    print("=" * 40)
+    print("Menu Options:")
+    print("  - Add: Add a new task")
+    print("  - View: View all tasks")
+    print("  - Delete: Delete a task")
+    print("  - Quit: Exit the application")
+    print("=" * 40)\
     
+def main():
+    """
+    Main function to run the Todo List application.
+    Displays welcome message and handles user selections.
+    """
+
+    print("\n" + "=" * 40)
+    print("Welcome to your ToDo List Application!")
+    print("=" * 40 + "\n")
+
+    while True:
+        try:
+
+            display_menu()
+
+            choice = input("\nPlease type your option (Add/View/Delete/Quit): ").strip().lower()
+            print()
+
+            if choice == 'add':
+                Add()
+            elif choice == 'view':
+                View()
+            elif choice == 'delete':
+                Delete()
+            elif choice == 'quit':
+                print("Thank you for using ToDo List! Goodbye!")
+                break
+            else:
+                print(f"Error: '{choice}' is not a valid option. Please choose from Add, View, Delete, or Quit.")
+
+        except KeyboardInterrupt:
+            print("\n\nApplication interrupted. Goodbye!")
+            break
+        except Exception as e:
+            print(F"An unexpected error occured: {e}\n")
+        finally:
+            pass
+
+if __name__ == "__main__":
+    main()            
