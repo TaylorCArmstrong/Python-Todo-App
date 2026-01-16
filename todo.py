@@ -9,14 +9,14 @@ def Add():
             print("Error: Task cannot be empty.\n")
             return
 
-        tasks.append(tasks)
+        tasks.append(task)
 
     except KeyboardInterrupt:
         print("\n\nTask addition cancelled.\n")
     except Exception as e:
         print(f"An error occurred while adding task: {e}\n")
     else:
-        print(f"Task '{task}' added sucessfully!\n")
+        print(f"Task '{task}' added successfully!\n")
     finally:
         pass
 
@@ -81,7 +81,7 @@ def display_menu():
     print("  - View: View all tasks")
     print("  - Delete: Delete a task")
     print("  - Quit: Exit the application")
-    print("=" * 40)\
+    print("=" * 40)
     
 def main():
     """
@@ -117,7 +117,7 @@ def main():
             print("\n\nApplication interrupted. Goodbye!")
             break
         except Exception as e:
-            print(F"An unexpected error occured: {e}\n")
+            print(f"An unexpected error occurred: {e}\n")
         finally:
             pass
 
